@@ -147,22 +147,28 @@ export async function POST(req: Request) {
       tool_choice: "auto",
     });
 
-    const toolCalls = toolDecider.choices[0]?.message?.tool_calls ?? [];
-    const functionCalls = toolCalls.filter(
-      (c: unknown) =>
-        (c as { type?: string })?.type === "function" &&
-        !!(c as { function?: { name?: string } })?.function?.name,
-    ) as Array<{
-      type: "function";
-      function: { name: string; arguments: string };
-    }>;
+    const toolCallsAny =
+      (toolDecider.choices[0] as any)?.message?.tool_calls ?? [];
+
+    const functionCalls = (toolCallsAny as any[])
+      .filter((c) => c?.type === "function" && c?.function?.name)
+      .map((c) => ({
+        name: String(c.function.name),
+        args: String(c.function.arguments ?? "{}"),
+      })) as Array<{ name: string; args: string }>;
 
     const supabase = supabaseServiceServer();
     const toolResults: Array<{ name: string; result: unknown }> = [];
 
     for (const call of functionCalls) {
-      const name = call.function.name as keyof typeof ToolArgs;
-      const rawArgs = JSON.parse(call.function.arguments || "{}");
+      const name = call.name as keyof typeof ToolArgs;
+
+      let rawArgs: unknown = {};
+      try {
+        rawArgs = JSON.parse(call.args || "{}");
+      } catch {
+        rawArgs = {};
+      }
 
       if (!(name in ToolArgs)) continue;
 
