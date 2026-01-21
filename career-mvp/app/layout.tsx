@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Career MVP",
+  title: "시작하는 모두를 위해",
   description: "산업 → 직무 → 직무 상세 → 공고 리스트 MVP",
 };
 
