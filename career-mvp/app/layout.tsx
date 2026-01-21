@@ -11,6 +11,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko">
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4921957130658301"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-screen bg-neutral-50 text-neutral-900">
         {children}
       </body>

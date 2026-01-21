@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { supabaseServer } from "@/lib/supabaseServer";
+import { supabaseAnonServer } from "@/lib/supabase";
 import ChatPanel from "@/components/ChatPanel";
 
 type Track = { id: string; name: string };
@@ -20,7 +20,7 @@ export default async function TrackPage({
 }) {
   const { industryId, jobId, trackId } = await params;
 
-  const supabase = supabaseServer();
+  const supabase = supabaseAnonServer();
 
   const { data: track } = await supabase
     .from("job_tracks")

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { supabaseServer } from "@/lib/supabaseServer";
+import { supabaseAnonServer } from "@/lib/supabase";
 
 type Job = { id: string; name: string };
 type Track = { id: string; name: string };
@@ -11,7 +11,7 @@ export default async function JobPage({
 }) {
   const { industryId, jobId } = await params; // ✅ 언랩
 
-  const supabase = supabaseServer();
+  const supabase = supabaseAnonServer();
 
   const { data: job } = await supabase
     .from("jobs")
