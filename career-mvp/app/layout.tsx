@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "시작하는 모두를 위해",
-  description: "산업 → 직무 → 직무 상세 → 공고 리스트 MVP",
+  title: "시작 : 맞춤형 취준 서비스",
+  description: "개인 맞춤 직무 탐색 / 공고 추천 / 정보 제공 서비스",
 };
 
 export default function RootLayout({

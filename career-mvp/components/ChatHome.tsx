@@ -112,7 +112,7 @@ export default function ChatHome() {
             직접 찾아보기
           </button>
 
-          <div className="text-sm font-semibold">si-zak</div>
+          <div className="text-sm font-semibold">시작하는 모두를 위해 : 취업 준비 가이드</div>
 
           {streaming ? (
             <button
