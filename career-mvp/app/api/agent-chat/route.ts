@@ -148,11 +148,19 @@ export async function POST(req: Request) {
     });
 
     const toolCalls = toolDecider.choices[0]?.message?.tool_calls ?? [];
+    const functionCalls = toolCalls.filter(
+      (c: unknown) =>
+        (c as { type?: string })?.type === "function" &&
+        !!(c as { function?: { name?: string } })?.function?.name,
+    ) as Array<{
+      type: "function";
+      function: { name: string; arguments: string };
+    }>;
 
     const supabase = supabaseServiceServer();
     const toolResults: Array<{ name: string; result: unknown }> = [];
 
-    for (const call of toolCalls) {
+    for (const call of functionCalls) {
       const name = call.function.name as keyof typeof ToolArgs;
       const rawArgs = JSON.parse(call.function.arguments || "{}");
 
