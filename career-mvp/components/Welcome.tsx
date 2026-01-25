@@ -53,8 +53,10 @@ export default function Welcome({ onDone }: { onDone: () => void }) {
 
     setPhase("welcoming");
 
-    timeoutsRef.current.push(window.setTimeout(() => setPhase("fadeout"), 2400));
-    timeoutsRef.current.push(window.setTimeout(() => onDone(), 3600));
+    timeoutsRef.current.push(
+      window.setTimeout(() => setPhase("fadeout"), 10_200),
+    );
+    timeoutsRef.current.push(window.setTimeout(() => onDone(), 11_200));
   }
 
   return (

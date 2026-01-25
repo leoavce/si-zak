@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Orbit Chat",
-  description: "Orbit Chat service",
+  title: "취업 준비 서비스 : 시작",
+  description: "취업 준비 서비스 : 시작",
 };
 
 export default function RootLayout({

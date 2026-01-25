@@ -15,7 +15,7 @@ type Posting = {
 
 const DICT = {
   ko: {
-    "meta.title": "Orbit Chat — 취업 준비 도움 서비스",
+    "meta.title": "취업 준비 서비스 : 시작",
     "header.start": "직접 검색",
     "header.back": "AI 검색",
     "hero.title": "취업 준비 AI 도우미",
@@ -34,7 +34,7 @@ const DICT = {
     "search.empty": "검색 결과가 아직 없어요.",
   },
   en: {
-    "meta.title": "Orbit Chat — Job Prep Service",
+    "meta.title": "Job Prep Service: Start",
     "header.start": "Direct search",
     "header.back": "AI search",
     "hero.title": "Job Prep AI Assistant",
