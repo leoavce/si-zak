@@ -21,10 +21,11 @@ const nextConfig: NextConfig = {
               "form-action 'self'; " +
               "frame-ancestors 'none'; " +
               "img-src 'self' data: https:; " +
-              "style-src 'self' 'unsafe-inline'; " +
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; " +
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
+              "font-src 'self' https://fonts.gstatic.com; " +
+              "script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net; " +
               "connect-src 'self' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://ep1.adtrafficquality.google; " +
-              "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com; ",
+              "frame-src 'self' https://tpc.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com; ",
           },
         ],
       },
